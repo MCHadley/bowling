@@ -10,17 +10,18 @@
         $result = mysqli_query($connect, $bowlingQuery);
         $row = mysqli_fetch_assoc($result);
     }
+    // QUERY NOT SUCCESSFUL
     if (!$result){
         exit("<p>Could not run the query, $bowlingQuery</p>");
     }
     
-
+    // NO RESULT FOR QUERY
     elseif(count($row['first_name']) == 0)
     {
         echo 'No result returned for the query' . $query;
     }
 
-    // Print SQL Query
+    // PRINT SQL QUERY
     else {
         echo "<p>Hello, ".$row['first_name']. " " .$row['last_name']."</p>";
         echo('<h2><a href="logout.php">Logout</a></h2>');

@@ -6,7 +6,6 @@ if(!empty($_POST['firstName']) || !empty($_POST['lastName'])){
     $_SESSION['firstName'] = $_POST['firstName'];
     $_SESSION['lastName'] = $_POST['lastName'];
 }
-
 else 
     {
         echo("<h1>Please input name</h1>");

@@ -7,8 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+<h1>10Pin</h1>
+<p><a href='register.php'>Registration</a></p>
     <form action="login.php" method="post">
-        <h1>Login</h1>
+        <h2>Login</h2>
         First Name:
         <input type="text" id="firstName" name="firstName"><br>
         Last Name:
