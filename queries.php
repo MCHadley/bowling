@@ -1,10 +1,11 @@
 <?php
     include ('config.php');
+    // CONNECT TO THE DATABASE
     $connect = mysqli_connect(SERVER, USER, PW, DB); 
     if (!$connect){
         print("<p>Cannot connect to database</p>");
     }
-    // SQL Query
+    // SQL QUERY
     else {
         $bowlingQuery = "SELECT first_name, last_name, pass from bowlers WHERE first_name = '$first' AND last_name = '$last' AND pass = '$password";
         $result = mysqli_query($connect, $bowlingQuery);
