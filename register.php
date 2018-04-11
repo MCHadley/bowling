@@ -53,11 +53,4 @@ if(!$result)
 {
     print("Could not run the query $userCreate");
 }
-
-
-
-
-
-
-
 ?>
