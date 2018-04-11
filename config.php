@@ -1,7 +1,7 @@
 <?php
 // DATABASE CONNECTION
 define('SERVER', 'localhost');
-define('USER', 'bowling');
+define('USER', 'mchadley_bowling');
 define('PW', 'strike');
-define('DB', 'bowling');
+define('DB', 'mchadley_bowling');
 ?>
