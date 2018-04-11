@@ -15,7 +15,7 @@ else
     $first = $_SESSION['firstName'];
     $last = $_SESSION['lastName'];
     echo("<h1>Welcome</h1>");
-    include('queries.php');
+    include ('queries.php');
 
 
 ?>
