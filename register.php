@@ -1,6 +1,7 @@
 <?php
 // DATABASE CONNECTION
 include ('config.php');
+// include ('inc-person-class.php');
 // END DATABASE CONNECTION
 
 // RECIEVE INPUT FROM REGISTERATION FORM
@@ -8,6 +9,13 @@ $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName']; 
 $email = $_POST['email'];
 $password = $_POST['password'];
+
+// $bowler = new Bowler();
+
+// $bowler->setfirstName($firstName);
+// $bowler->setlastName($lastName);
+// $bowler->setemail($email);
+// $bowler->setpassword($password);
 
 // CHECK FOR INPUT
 if(!$firstName)
@@ -35,23 +43,28 @@ if(!$password)
 $passSecure = password_hash($password, PASSWORD_DEFAULT);
 
 // DATABASE QUERY
-$connect = mysqli_connect(SERVER, USER, PW, DB); 
+if(!$firstName || !$lastName || !$email || !$password)
+{
+    echo '<p>Fill out form please</p>';
+    echo('<p><a href="registeration-form.php">Go back</a></p>');
+}
+else {
+    $connect = mysqli_connect(SERVER, USER, PW, DB); 
 
 if (!$connect){
     exit("<p>Cannot connect to database</p>");
-}
-else
-{
-$userCreate = "INSERT INTO bowlers (email, pass, first_name, last_name) VALUES ('$email', '$passSecure', '$firstName', '$lastName')";
+    }
+else{
+    $userCreate = "INSERT INTO bowlers (email, pass, first_name, last_name) VALUES ('$email',$passSecure', $firstName', '$lastName')";
 
-$result = mysqli_query($connect, $userCreate);
+    $result = mysqli_query($connect, $userCreate);
 
-echo 'Affected rows '. mysqli_affected_rows($connect);
-echo '<p><a href="index.php>Login page</a></p>';
-}
-
+    echo 'Affected rows ' .mysqli_affected_rows($connect);
+    echo '<p><a href="index.php>Return to Login</a></p>';
+    }
 if(!$result)
-{
-    print("Could not run the query $userCreate");
+    {
+        print("Could not run the query $userCreate");
+    }
 }
 ?>

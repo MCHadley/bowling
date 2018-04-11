@@ -6,7 +6,7 @@
     }
     // SQL Query
     else {   
-        $bowlingQuery = "SELECT first_name, last_name from bowlers WHERE first_name = '$first' AND last_name = '$last'";
+        $bowlingQuery = "SELECT first_name, last_name, pass from bowlers WHERE first_name = '$first' AND last_name = '$last' AND pass = '$password";
         $result = mysqli_query($connect, $bowlingQuery);
         $row = mysqli_fetch_assoc($result);
     }

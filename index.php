@@ -15,6 +15,8 @@
         <input type="text" id="firstName" name="firstName"><br>
         Last Name:
         <input type="text" id="lastName" name="lastName"><br>
+        Password:
+        <input type="password" id="password" name="password"><br>
         <input type="submit" value="submit">
     </form>
 </body>
