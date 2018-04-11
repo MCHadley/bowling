@@ -47,6 +47,7 @@ $userCreate = "INSERT INTO bowlers (email, pass, first_name, last_name) VALUES (
 $result = mysqli_query($connect, $userCreate);
 
 echo 'Affected rows '. mysqli_affected_rows($connect);
+echo '<p><a href="index.php>Login page</a></p>';
 }
 
 if(!$result)
