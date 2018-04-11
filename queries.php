@@ -5,7 +5,7 @@
         print("<p>Cannot connect to database</p>");
     }
     // SQL Query
-    else {   
+    else {
         $bowlingQuery = "SELECT first_name, last_name, pass from bowlers WHERE first_name = '$first' AND last_name = '$last' AND pass = '$password";
         $result = mysqli_query($connect, $bowlingQuery);
         $row = mysqli_fetch_assoc($result);
