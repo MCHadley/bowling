@@ -7,7 +7,9 @@
     }
     // SQL QUERY
     else {
-        $bowlingQuery = "SELECT first_name, last_name, pass from bowlers WHERE first_name = '$first' AND last_name = '$last' AND pass = '$password";
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $bowlingQuery = "SELECT * from bowlers WHERE email = '$email'";
         $result = mysqli_query($connect, $bowlingQuery);
         $row = mysqli_fetch_assoc($result);
     }
@@ -17,14 +19,27 @@
     }
     
     // NO RESULT FOR QUERY
-    elseif(count($row['first_name']) == 0)
+    elseif(count($row['email']) == 0)
     {
         echo 'No result returned for the query' . $query;
     }
 
     // PRINT SQL QUERY
     else {
-        echo "<p>Hello, ".$row['first_name']. " " .$row['last_name']."</p>";
-        echo('<h2><a href="logout.php">Logout</a></h2>');
-    }
+        $hash = $row['pass'];
+
+                if(password_verify($password, $hash))
+                {
+                    // success
+                    $_SESSION['email'] = $row['email'];
+                    $_SESSION['pass'] = $row['pass'];
+
+                    echo '<p><a href="logout.php">Logout</a>' . " " . $_SESSION['email'] . '</p>';
+                    echo '<p><a href="showBowlers.php">Show Bowlers</a></p>';
+
+                }
+            else
+                    echo "<p>Passwords do not match.</p>";
+
+            }
 ?>

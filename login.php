@@ -1,23 +1,17 @@
 <?php
 session_start(); // Start session
+include ('queries.php');
 
 // Accept login info
-if(!empty($_POST['firstName']) || !empty($_POST['lastName']) || !empty($_POST['password'])){   
-    $_SESSION['firstName'] = $_POST['firstName'];
-    $_SESSION['lastName'] = $_POST['lastName'];
-    $_SESSION['password'] = $_POST['password'];
+if(empty($_POST['email']) || empty($_POST['password'])){   
+   echo 'Please input email and password to login';
+   echo('<h2><a href="index.php">Return to login</a></h2>'); 
 }
 else 
     {
-        echo("<h1>Please input name</h1>");
-        echo('<h2><a href="index.php">Return to login</a></h2>');
+        echo("<h1>Welcome</h1>");
     }
-    // Create session variables
-    $first = $_SESSION['firstName'];
-    $last = $_SESSION['lastName'];
-    $password = $_SESSION['password'];
-    echo("<h1>Welcome</h1>");
-    include ('queries.php');
+    
 
 
 ?>

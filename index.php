@@ -11,10 +11,8 @@
 <p><a href='registeration-form.php'>Registration</a></p>
     <form action="login.php" method="post">
         <h2>Login</h2>
-        First Name:
-        <input type="text" id="firstName" name="firstName"><br>
-        Last Name:
-        <input type="text" id="lastName" name="lastName"><br>
+        Email:
+        <input type="text" id="email" name="email"><br>
         Password:
         <input type="password" id="password" name="password"><br>
         <input type="submit" value="submit">

@@ -14,7 +14,11 @@ if (!$firstName || !$lastName || !$email || !$password){
 }
 elseif($firstName && $lastName && $email && $password){
     // HASH PASSWORD
-    $passSecure = password_hash($password, PASSWORD_DEFAULT);
+    $options = ['cost' => 12, 'salt' => 'helloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagain'
+    ];
+
+    $passSecure = password_hash($password, PASSWORD_BCRYPT, $options);
+    
     // CONNECT TO DATABASE
     $connect = mysqli_connect(SERVER, USER, PW, DB);
         if(!$connect){
@@ -27,7 +31,7 @@ elseif($firstName && $lastName && $email && $password){
 
             $result = mysqli_query($connect, $userCreate);
 
-            echo 'Affected rows' .mysqli_affected_rows($connect);
+            echo '<p>Affected rows: ' .mysqli_affected_rows($connect).'</p>';
             echo '<p><a href="index.php>Return to Login</a></p>';
 
             if(!$result){
