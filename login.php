@@ -1,5 +1,4 @@
 <?php
-session_start(); // Start session
 include ('queries.php');
 
 // Accept login info

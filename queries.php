@@ -1,5 +1,6 @@
 <?php
     include ('config.php');
+    session_start(); // Start session
     // CONNECT TO THE DATABASE
     $connect = mysqli_connect(SERVER, USER, PW, DB); 
     if (!$connect){
