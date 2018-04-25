@@ -5,20 +5,21 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <form action="register.php" method="post">
+        <form action="register.php" method="post" class="register">
             <h1>Registration</h1>
-            First Name:
-            <input type="text" id="firstName" name="firstName"><br>
-            Last Name:
-            <input type="text" id="lastName" name="lastName"><br>
-            Email: 
-            <input type="text" id="email" name="email"><br>
-            Password: 
-            <input type="password" id="password" name="password"><br>
-            <input type="submit" value="submit">
-        
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" class="form-control"><br>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" class="form-control"><br>
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" class="form-control"><br>
+            <label for="password">Password:</label> 
+            <input type="password" id="password" name="password" class="form-control"><br>
+            <input type="submit" value="submit" class="btn btn-primary">
         </form>
     </body>
 </html>
