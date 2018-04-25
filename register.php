@@ -32,7 +32,7 @@ elseif($firstName && $lastName && $email && $password){
             $result = mysqli_query($connect, $userCreate);
 
             echo '<p>Affected rows: ' .mysqli_affected_rows($connect).'</p>';
-            echo '<p><a href="index.html>Return to Login</a></p>';
+            echo '<p><a href="login.html>Return to Login</a></p>';
 
             if(!$result){
                 print("Could not run the query $userCreate");
