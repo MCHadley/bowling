@@ -7,7 +7,6 @@ if (!$connect){
 else {
     $showQuery = "SELECT first_name, last_name FROM `bowlers` ORDER BY first_name ASC";
     $result = mysqli_query($connect, $showQuery);
-    // $row = mysqli_fetch_assoc($result);
 
     if ($result->num_rows > 0) {
         echo "<table><tr><th>Name</th></tr>";
