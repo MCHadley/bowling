@@ -15,7 +15,8 @@ else {
             echo "<tr><td>" . $row["first_name"]. " " . $row["last_name"]. "</td></tr>";
         }
         echo "</table>";
-    } else {
+    } 
+    else {
         echo "0 results";
     }
 }
