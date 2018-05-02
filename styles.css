@@ -1,0 +1,33 @@
+body {
+    margin-left: 100px;
+}
+
+.title {
+    float: left;
+    margin-top: 80px;
+}
+
+form {
+    width: 700px;
+}
+
+.register {
+    margin-top: 80px;
+}
+
+nav {
+    display: block;
+}
+
+.indexPage {
+    width: 400px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
