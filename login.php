@@ -8,7 +8,7 @@ if(empty($_POST['email']) || empty($_POST['password'])){
 }
 else 
     {
-        echo("<h1>Welcome</h1>");
+        echo("<p>Logged in</p>");
     }
     
 
