@@ -38,7 +38,7 @@
                     $_SESSION['pass'] = $row['pass'];
                     
                     echo '<p><a href="logout.php">Logout</a>' . " " . $_SESSION['email'] . '</p>';
-                    echo '<p><a href="show-bowlers.form.php">Show Bowlers</a></p>';
+                    echo '<p><a href="show-bowlers-form.php">Show Bowlers</a></p>';
 
                 }
             else
