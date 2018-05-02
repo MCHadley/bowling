@@ -13,11 +13,7 @@ session_start();
       <?php
         session_unset();
         session_destroy();
-<<<<<<< HEAD
-        header("location:index.php");
-=======
         header("location:index.html");
->>>>>>> registeration
         exit();
 
       ?>  
