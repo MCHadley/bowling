@@ -1,31 +1,36 @@
 <?php
     include ('config.php');
-    session_start(); // Start session
-    // CONNECT TO THE DATABASE
+    include ('functions.php');
+// START SESSION
+    session_start();
+    
+// CONNECT TO THE DATABASE
     $connect = mysqli_connect(SERVER, USER, PW, DB); 
     if (!$connect){
         print("<p>Cannot connect to database</p>");
     }
-    // SQL QUERY
+    
+// SQL QUERY
     else {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $email = dbEscape($connect ,$_POST['email']);
+        $password = dbEscape($connect, $_POST['password']);
         $bowlingQuery = "SELECT * from bowlers WHERE email = '$email'";
         $result = mysqli_query($connect, $bowlingQuery);
         $row = mysqli_fetch_assoc($result);
     }
-    // QUERY NOT SUCCESSFUL
+    
+// QUERY NOT SUCCESSFUL
     if (!$result){
         exit("<p>Could not run the query, $bowlingQuery</p>");
     }
     
-    // NO RESULT FOR QUERY
+// NO RESULT FOR QUERY
     elseif(count($row['first_name']) == 0)
     {
         echo 'No result returned for the query' . $query;
     }
 
-    // PRINT SQL QUERY
+// PRINT SQL QUERY
     else {
         echo "<h1>Hello, ".$row['first_name']. " " .$row['last_name']."</h1>";
     }

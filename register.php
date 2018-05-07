@@ -1,5 +1,6 @@
 <?php
 include ('config.php');
+include ('functions.php');
 
 // RECEIVE INPUT FROM REGISTERATION FORM
 $firstName = $_POST['firstName'];
@@ -13,21 +14,24 @@ if (!$firstName || !$lastName || !$email || !$password){
     print('<p><a href="registeration-form.html"</a>Return to Registration form</p>');
 }
 elseif($firstName && $lastName && $email && $password){
-    // HASH PASSWORD
+// HASH PASSWORD
     $options = ['cost' => 12, 'salt' => 'helloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagainhelloagain'
     ];
 
     $passSecure = password_hash($password, PASSWORD_BCRYPT, $options);
     
-    // CONNECT TO DATABASE
+// CONNECT TO DATABASE
     $connect = mysqli_connect(SERVER, USER, PW, DB);
         if(!$connect){
             exit('Could not connect to database');
         }
-        // DATABASE QUERY
+// DATABASE QUERY
         elseif($connect)
         {
-            $userCreate = "INSERT INTO bowlers (email, pass, first_name, last_name) VALUES ('$email', '$passSecure', '$firstName', '$lastName')";
+            $first_name = dbEscape($connect, $firstName);
+            $last_name = dbEscape($connect, $lastName);
+            $emailAdd = dbEscape($connect, $email);
+            $userCreate = "INSERT INTO bowlers (email, pass, first_name, last_name) VALUES ('$emailAdd', '$passSecure', '$first_name', '$last_name')";
 
             $result = mysqli_query($connect, $userCreate);
 
